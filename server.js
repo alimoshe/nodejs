@@ -3,11 +3,13 @@ const app = express();
 const PORT = 5000;
 const httpServer = require('http');
 const bookModel = require('./models/book.model');
-const mongoose = require('./services/mongo.service');
+const cookieParser = require('cookie-parser');
 
 
 // Define JSON Middleware 
 app.use(express.json());
+// Define Cookie Parser Package 
+app.use(cookieParser());
 
 // Define main Route form checking Create a book to Mongo Database 
 app.get('/', (req, res) => {
