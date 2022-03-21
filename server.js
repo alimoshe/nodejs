@@ -13,8 +13,10 @@ app.use(cookieParser());
 
 // Define main Route form checking Create a book to Mongo Database 
 app.get('/', (req, res) => {
-    bookModel.createNewBook();
-    res.status(200).send('Book Stored Successful');
+    //bookModel.createNewBook();
+    console.log(req.cookies);
+    res.send('<code> 1401 is loading </code>');
+    //res.status(200).send('Book Stored Successful');
 });
 
 app.get('/list', (req, res) => {
