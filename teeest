@@ -1,0 +1,15 @@
+name: Simple CI With github
+
+on: push
+
+jobs:
+  job_1:
+    name: Run Integration Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout First
+        run: actions/checkout@v2
+      - name: Setup Node.js
+        run: actions/setup-node@v2
+      - name: Final Test
+        run: npm run test

@@ -1,17 +1,15 @@
-name: example-basic
-on:
-  push:
-    branches:
-      - "master"
-  pull_request:
-jobs:
-  # note: Ubuntu 16 probably works, but is deprecated
+name: Simple CI With github
 
-  basic-ubuntu-18:
+on: push
+
+jobs:
+  job_1:
+    name: Run Integration Test
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        uses: actions/setup-node@v2
-          - node-version: '16'
-    run: npm test      
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: "14"
+        - run: npm install
+        - run: npm test
